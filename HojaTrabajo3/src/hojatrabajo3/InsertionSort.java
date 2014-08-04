@@ -11,28 +11,17 @@ package hojatrabajo3;
  * @author Olga Cobaquil
  */
 public class InsertionSort {
-//********************************************************************
-//  Sorting.java       Author: Lewis/Loftus
-//
-//  Demonstrates the selection sort and insertion sort algorithms.
-//********************************************************************
-      
-    public static void insertionSort (Comparable[] list)
-    {
-      for (int index = 1; index < list.length; index++)
-      {
-         Comparable key = list[index];
-         int position = index;
-
-         //  Shift larger values to the right
-         while (position > 0 && key.compareTo(list[position-1]) < 0)
-         {
-            list[position] = list[position-1];
-            position--;
-         }
-            
-         list[position] = key;
+    public static void insertionSort (Comparable x){
+      //Ciclo de ordenamiento de los valores de la lista
+      for (int i = 1; i < ((Numeros)x).getSize()-1; i++){
+         Comparable _valor = ((Numeros)x).getLista()[i];
+         int _posicion = i;
+         //  Condición de almacenamiento del valor mayor a la derecha de la lista
+         while (_posicion > 0 && _valor.compareTo(((Numeros)x).getLista()[_posicion-1]) < 0){
+            ((Numeros)x).getLista()[_posicion] = ((Numeros)x).getLista()[_posicion-1];
+            _posicion--;
+            }           
+         ((Numeros)x).getLista()[_posicion] = (int) _valor;
       }
    }
-    
 }
