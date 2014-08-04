@@ -13,60 +13,59 @@ package hojatrabajo3;
 import java.io.*;
 
 public class Archivo {
-    /*atributos*/
+    //ATRIBUTOS
     private File archivo;
-    private FileWriter fWriter;
-    private PrintWriter printW;
-    private BufferedReader bReader;
-    private FileReader fReader;
-    
-     /*Constructor*/
-    
+    private BufferedReader br;
+    private FileReader fr;
+    private FileWriter fw;
+    private PrintWriter pw;
+
+    //Constructor
     public Archivo(String nombre){
         archivo = new File(nombre+".txt");
         if(!archivo.exists()){
-            System.out.print("El archivo no existe");
+            System.out.print("No existe el archivo, creando...");
         }
         else{
             try{
-                fReader = new FileReader(archivo);
-                bReader = new BufferedReader(fReader);
+                fr = new FileReader(archivo);
+                br = new BufferedReader(fr);
             }catch (Exception e){
                 System.out.println(e.getMessage());
             }
         }
 
     }
-    
-    //Metodo para escribir un archivo nuevo
-    public void escribirArchivo(String linea){
-        try{
-            fWriter = new FileWriter(archivo, true);
-            printW = new PrintWriter(fWriter);
-            
-            printW.println(linea);
-            
-            fWriter.close();
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-    }
-    
-     //Metodo para la lectura de un archivo
+
+    //Metodo que permite leer el contenido del archivo de texto
     public int[] leerArchivo(){
-        int[] cont = new int[100];
+        int[] contenido = new int[2000];
         try{
-            String linea;
+            String Slinea;
             int i = 0;
-            while((linea=bReader.readLine())!=null){
-                cont[i] = Integer.parseInt(linea);
+            while((Slinea=br.readLine())!=null){
+                contenido[i] = Integer.parseInt(Slinea);
                 i++;
             }
-            fReader.close();
+            fr.close();
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
 
-        return cont;
+        return contenido;
     }
-}
+    
+    //Metodo que permite escribir en un archivo
+    public void escribirArchivo(String linea){
+        try{
+            fw = new FileWriter(archivo, true);
+            pw = new PrintWriter(fw);
+            
+            pw.println(linea);
+            
+            fw.close();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    }
