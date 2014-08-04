@@ -6,7 +6,7 @@
             Alvaro Sanchez 13657
             Andres Oliva
             Alejandro Arana
- *
+ * Guatemala 31 de Julio 2014
  */
 
 package hojatrabajo3;
@@ -17,6 +17,7 @@ package hojatrabajo3;
  */
 import java.util.Random;
 public class HojaTrabajo3 {
+    
     public static void main(String[] args){
         //Inicia el archivo de numeros aleatorios
         Archivo archivo = new Archivo("Aleatorios");
@@ -31,10 +32,16 @@ public class HojaTrabajo3 {
         }        
         //Almacena los numeros del archivo en el arreglo de tipo Numeros
         ((Numeros)listaNumeros).setLista(archivo.leerArchivo());
+        
         //---------------------------------------------
-        //Ordenando los numeros
-        //Sorting.bubbleSort(listaNumeros);        
+        //Ordenando los numeros (Puede escoger BubbleSort, MergeSort, InsertionSort o QuickSort)
+        
+        MergeSort.mergeSort(listaNumeros); 
+        //InsertionSort.insertionSort(listaNumeros);
+        //BubbleSort.bubbleSort(listaNumeros);
+        //QuickSotr.quickSort(listaNumeros);
         //---------------------------------------------
+        
         //Genera el archivo con los numeros ordenados
         archivo = new Archivo("Ordenados");
         //Almacena los valores de la lista en el archivo Ordenados
