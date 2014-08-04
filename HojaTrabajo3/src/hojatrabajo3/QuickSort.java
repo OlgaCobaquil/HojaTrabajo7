@@ -13,7 +13,7 @@ package hojatrabajo3;
 public class QuickSort 
 {
     public static void quicksort(int A[], int izquierda, int derecha) {
-
+//codigo en base al encontrado en el libro Ja
   int pivote=A[izquierda]; // se toma el primer elemento como pivote
   int i=izquierda; // i busca de izquierda a derecha
   int j=derecha; // j busca de derecha a izquierda
